@@ -41,6 +41,20 @@ If the target is older than the latest release branch, the request may be
 reviewed and approved, but the cherry-pick must not begin until
 `Approved for <latest-release> Branch` is present.
 
+This ordering protects the supported upgrade path. If a change is included in
+an older release but absent from the latest release, it can become easy to
+introduce regressions and create confusion. Successful testing on the older
+branch establishes that branch's stability, but it does not prevent such a
+cross-release regression.
+
+Each release manager retains authority over their own branch. The
+latest-release gate does not give one release manager authority over another
+branch; it coordinates otherwise independent decisions so that an
+older-release backport does not create an unintended gap between supported
+releases. The latest-release manager decides whether to approve the change for
+that branch, and the older-release manager decides whether to approve it for
+the older branch.
+
 Contributors may not have permission to add labels directly. Where the
 repository enables PR-description automation, contributors request release
 labels through the PR template:
