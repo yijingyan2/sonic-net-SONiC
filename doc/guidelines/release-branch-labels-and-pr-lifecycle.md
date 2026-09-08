@@ -100,7 +100,7 @@ flowchart TD
     J -- No --> M["S6.3: Create backport PR"]
     M --> N["S6.4: + Created PR to<br/>release Branch"]
 
-    N --> O{"S7: Backport PR checks<br/>and review pass?"}
+    N --> O{"S7: Backport PR checks pass?"}
     O -- No --> P["S7.1: Wait until checker has<br/>been open for 3 days"]
     P --> P1["S7.2: Automatically retry checker"]
     P1 --> P2{"S7.3: Retry passes?"}
